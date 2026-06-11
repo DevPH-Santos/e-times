@@ -34,8 +34,20 @@ Route::get('/sign-in', function(){
 
 
 //Materials
+
+//Listar dados do material nos campos
 Route::get('/materials/new',[MaterialController::class, 'create']);
+
+//Cadastrar Materiais
 Route::post('/materials/new',[MaterialController::class, 'store']);
+
+//Listar Materiais
 Route::get('/materials',[MaterialController::class, 'index']);
+
+//Listar dados do material nos campos
 Route::get('/materials/edit/{id}', [MaterialController::class, 'edit']);
+
+//Atualizar os dados novos no banco de dados
 Route::put('/materials/edit/{id}', [MaterialController::class, 'update']);
+
+Route::delete('/materials/delete/{id}', [MaterialController::class, 'destroy']);

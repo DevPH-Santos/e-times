@@ -11,7 +11,9 @@ class MaterialController extends Controller
 
     public function create()
     {
-        return view("materials/form");
+        return view('materials.form', [
+            'material' => new Material()
+        ]);
     }
 
     public function store(Request $request)
@@ -29,24 +31,28 @@ class MaterialController extends Controller
         $material->save();
 
         return redirect("/materials/new");
-
     }
 
     public function index()
     {
         $materials = Material::all();
-        return view('materials/table',
-        ["materials" => $materials]);
+        return view(
+            'materials/table',
+            ["materials" => $materials]
+        );
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $material = Material::findOrFail($id);
-        return view('materials/form', [
-            "material" => $material
+
+        return view('materials.form', [
+            'material' => $material
         ]);
     }
 
-    public function upgrade(Request $request){
+    public function update($request)
+    {
         $material = Material::findOrFail($request->id);
 
         $material->name = $request->name;
@@ -57,7 +63,13 @@ class MaterialController extends Controller
         $material->save();
 
         return redirect('/materials');
+    }
 
+    public function destroy($id){
+        $material = Material::findOrFail($id);
+        $material->delete();
+        
+        return redirect('/materials');
     }
 
 }

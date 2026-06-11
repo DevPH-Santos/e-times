@@ -120,19 +120,19 @@
 
     </form>
 
-    <a target="blank" href="http://127.0.0.1:8000/sobre">Sobre</a>
+    <a href="http://127.0.0.1:8000/sobre">Sobre</a>
     <br>
     <br>
-    <a target="blank" href="http://127.0.0.1:8000/sign-up">Cadastro</a>
+    <a href="http://127.0.0.1:8000/sign-up">Cadastro</a>
     <br>
     <br>
-    <a target="blank" href="http://127.0.0.1:8000/sign-in">Login</a>
+    <a href="http://127.0.0.1:8000/sign-in">Login</a>
     <br>
     <br>
-    <a target="blank" href="http://127.0.0.1:8000/materials/new">Cadastrar material</a>
+    <a href="http://127.0.0.1:8000/materials/new">Cadastrar material</a>
     <br>
     <br>
-    <a target="blank" href="http://127.0.0.1:8000/materials">Ver Materiais</a>
+    <a href="http://127.0.0.1:8000/materials">Ver Materiais</a>
 
 </body>
 

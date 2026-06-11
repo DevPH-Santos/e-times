@@ -28,17 +28,19 @@
                     @endif
 
                     <!-- Form -->
-                    <form 
-                        action=""
+                    <form
+                        action="{{ isset($material) && $material->exists
+                            ? '/materials/edit/'.$material->id
+                            : '/materials/new' }}"
                         method="POST"
                         enctype="multipart/form-data"
-                        class="needs-validation"
-                        novalidate
                     >
 
-                        @isset($material)
-                            @method('put')
-                        @endisset
+                        @csrf
+
+                        @if(isset($material) && $material->exists)
+                            @method('PUT')
+                        @endif
 
                         @csrf()
 
@@ -85,7 +87,7 @@
 
                         <!-- Arquivo -->
                         <div class="mb-4">
-                            <label for="arquivo" class="form-label">
+                            <label for="file_url" class="form-label">
                                 Arquivo
                             </label>
 
@@ -93,10 +95,8 @@
                                 type="file"
                                 id="arquivo"
                                 name="file_url"
-                                value="{{ $material->file_url }}"
-                                accept=".pdf, .doc, .docx, .pptx, .ppt, .jpg, .jpeg, .png"
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png"
                                 class="form-control"
-                                required
                             >
 
                             <div class="invalid-feedback">
